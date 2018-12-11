@@ -1,0 +1,24 @@
+{
+  "name": "link-ga.me",
+  "version": "0.1.0",
+  "description": "A website to compress all game marketplace at one link",
+  "main": "link.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bigaston/link-ga.me.git"
+  },
+  "author": "Bigaston",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bigaston/link-ga.me/issues"
+  },
+  "homepage": "https://github.com/Bigaston/link-ga.me#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "pug": "^2.0.3"
+  }
+}

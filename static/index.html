@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>LinkGame</title>
+        
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="375319043489-vl1gik23l43pnbnvf4r1v40ii7la96tr.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="./assets/Lato/latofonts.css">
+        <link rel="stylesheet" type="text/css" href="./assets/Lato/latostyle.css">
+        
+        <script src="index.js"></script>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Create an easy to share link for your games!" />
+    </header>
+    <body>
+        <center>     
+            <section class="form">       
+                <h1>LinkGame</h1>
+                <p>Create an easy to share link for your games!</p>
+
+                <form>
+                    <fieldset>
+                        <legend>
+                            Basic information
+                        </legend>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Name of your game</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="title" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Name of the creator</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="creator" required>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Link to picture</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="image">
+                        </div>
+                        
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Description</span>
+                            </div>
+                            <textarea name="description" class="form-control" aria-label="With textarea" placeholder="Enter the description of your game here! (Leave blank for nothing)".></textarea>
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <legend>
+                            Links to your game
+                        </legend>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Itch.io</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="itch">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Newgrounds</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ng">
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Gamejolt</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="gj">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Steam</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="steam">
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Armorgames</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ag">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Ludum Dare</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ld">
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Google Play Store</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="gp">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">App Store</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="as">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">Github</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="git">
+                        </div>
+                    </fieldset>
+                    
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div> <br><br>
+                    <input name="mail" class="form-control" type="text" placeholder="Email" readonly>
+
+                    <button class="btn btn-primary" type="submit">Generate the link</button> <br><br>
+                </form>
+            <footer>
+                <p>LinkGames by <a href="https://twitter.com/Bigaston">Bigaston</a> | <a href="about.html">About</a></p>
+            </footer>
+            </center>
+        </section>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

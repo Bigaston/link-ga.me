@@ -1,0 +1,16 @@
+body
+{
+    background-color: #D5DBDB;
+    color: #1C2833;
+    
+}
+
+a
+{
+    color: #1C2833;
+    text-decoration: underline;
+}
+
+.form {
+    margin : 10%;
+}
