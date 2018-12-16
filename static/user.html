@@ -22,13 +22,15 @@
 				<p>Here you can find your games on this website</p>
 
                 <div id="googleButton" class="g-signin2" data-onsuccess="onSignIn"></div> <br>
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="logout();">Change Account</button>
+                <form id="formMail" action="/delete" method="POST">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="logout();">Change Account</button>
+                        </div>
+                        <input id="mail" name="mail" class="form-control" type="text" placeholder="Email from Google Account (please login!)" aria-describedby="button-addon1" required readonly>
                     </div>
-                    <input id="mail" name="mail" class="form-control" type="text" placeholder="Email from Google Account (please login!)" aria-describedby="button-addon1" required readonly>
-                </div>
+                    <input id="link" name="link" type="text" style="display: none;">
+                </form>
 
                 <button type="button" class="btn btn-primary" onclick="update();">Update</button>
 

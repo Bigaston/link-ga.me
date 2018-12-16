@@ -36,8 +36,8 @@ function update() {
 				ssec.innerHTML = `<div class="card" style="width: 18rem;">
 									  <div class="card-body">
 									    <h5 class="card-title">${data[i].title}</h5>
-									    <p class="card-text">${data[i].description}</p>
-									    <a href="/${data[i].link}" class="btn btn-primary">Visit the page</a>
+									    <p class="card-text">${data[i].description.replace("%°", ".")}</p>
+										<a href="/${data[i].link}" class="btn btn-primary">Visit the page</a>
 									  	<button class="btn btn-danger" onclick="delGame('${data[i].link}');">Delete</button>
 									  </div>
 									</div>`
@@ -47,16 +47,7 @@ function update() {
 }
 
 function delGame(pLink) {
-	mail = document.getElementById("mail")
-	fetch("/delete", {
-		method: "DELETE",
-		body: {link: pLink, mail: mail.value}
-	})
-	.then(function(response) {
-		if (response.ok) {
-			update();
-		} else {
-			console.log("Error")
-		}
-	})
+	var linkArea = document.getElementById("link")
+	linkArea.value = pLink
+	document.forms["formMail"].submit();
 }

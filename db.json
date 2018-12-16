@@ -1,26 +1,6 @@
 {
-  "link": {
-    "test": {
-      "title": "I'm a game",
-      "creator": "Bigaston",
-      "link": "test",
-      "mail": "bigaston1@gmail%°com",
-      "image": "",
-      "description": "",
-      "itch": "",
-      "ng": "",
-      "gj": "",
-      "steam": "",
-      "ag": "",
-      "ld": "",
-      "gp": "",
-      "as": "",
-      "git": ""
-    }
-  },
+  "link": [],
   "user": {
-    "bigaston1@gmail%°com": [
-      "test"
-    ]
+    "bigaston1@gmail%°com": []
   }
 }

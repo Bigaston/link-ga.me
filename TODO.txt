@@ -1,3 +1,2 @@
-- Supression de jeu depuis page utilisateur
 - Verification de l'utilisateur avec API Google
-- Correction erreur sur page User
+- Verification de la présence de jeu et redirection 404 sinon
