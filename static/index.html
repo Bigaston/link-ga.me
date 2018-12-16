@@ -11,9 +11,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" type="text/css" href="./assets/Lato/latofonts.css">
         <link rel="stylesheet" type="text/css" href="./assets/Lato/latostyle.css">
-        
-        <script src="index.js"></script>
-        
+            
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Create an easy to share link for your games!" />
@@ -24,7 +22,7 @@
                 <h1>LinkGame</h1>
                 <p>Create an easy to share link for your games!</p>
 
-                <form>
+                <form id="link-form" action="/submit" method="post" target="_blank">
                     <fieldset>
                         <legend>
                             Basic information
@@ -127,19 +125,37 @@
                         </div>
                     </fieldset>
                     
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div> <br><br>
-                    <input name="mail" class="form-control" type="text" placeholder="Email" readonly>
+                    <div id="googleButton" class="g-signin2" data-onsuccess="onSignIn"></div> <br>
 
-                    <button class="btn btn-primary" type="submit">Generate the link</button> <br><br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="logout();">Change Account</button>
+                        </div>
+                      <input id="mail" name="mail" class="form-control" type="text" placeholder="Email from Google Account (please login!)" aria-describedby="button-addon1" required readonly>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3">link-ga.me/</span>
+                        </div>
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="url" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="check();">Check</button>
+                        </div>
+                    </div>
+                 
+                    <button id="valid" class="btn btn-primary" type="submit">Generate the link</button> <br><br>
+                    <br>
                 </form>
             <footer>
                 <p>LinkGames by <a href="https://twitter.com/Bigaston">Bigaston</a> | <a href="about.html">About</a></p>
             </footer>
             </center>
         </section>
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="index.js"></script>
     </body>
 </html>

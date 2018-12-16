@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/Bigaston/link-ga.me#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "lowdb": "^1.0.0",
     "node-fetch": "^2.3.0",
     "pug": "^2.0.3"
   }

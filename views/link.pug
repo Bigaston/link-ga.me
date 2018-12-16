@@ -1,0 +1,67 @@
+html
+	head
+		title= title
+		link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
+		link(rel="stylesheet" href="style.css")
+		link(rel="stylesheet" type="text/css" href="assets/Lato/latofonts.css")
+		link(rel="stylesheet" type="text/css" href="assets/Lato/latostyle.css")
+           
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		meta(name="description" content="Create an easy to share link for your games!")
+
+	body
+		center
+			section.form
+				h1() #{title}
+				h2() #{creator}
+				if image
+					img(src= image)
+					<br> <br>
+				if description
+					p() #{description} 
+					<br> <br>
+
+				if itch
+					a(href=itch target="_blank") <img id="itch" height="80" src="assets/itch.png"> 
+					<br> <br>
+
+				if ng
+					a(href=ng target="_blank") <img id="ng" height="160" src="./assets/ng.png">
+					<br> <br>
+
+				if gj
+					a(href=gj target="_blank") <img id="gamejolt" height="80" src="./assets/gamejolt.png"> 
+					<br> <br>
+
+				if steam
+					a(href=steam target="_blank") <img id="steam" height="80" src="./assets/steam.png">
+					<br> <br>
+
+				if ag
+					a(href=ag target="_blank") <img id="armorgames" height="80" src="./assets/armorgames.svg"> 
+					<br>
+
+				if ld
+					a(href=ld target="_blank") <img id="ludum" height="80" src="./assets/ludum.png">
+					<br>
+
+				if gp
+					a(href=gp target="_blank") <img id="google" height="120" src="./assets/google_play.png">
+					<br>
+
+				if as
+					a(href=as target="_blank") <img id="appstore" height="80" src="./assets/appstore.svg">
+					<br>
+
+				if git 
+					a(href=git target="_blank") <img id="github" height="80" src="./assets/GitHub.png">
+					<br> <br>
+
+				<footer>
+				if steam 
+					p ©2017 Valve Corporation. Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries.
+
+				if gp
+					p Google Play and the Google Play logo are trademarks of Google LLC.
+				</footer>

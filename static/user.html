@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Your games</title>
+		<meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="375319043489-vl1gik23l43pnbnvf4r1v40ii7la96tr.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="./assets/Lato/latofonts.css">
+        <link rel="stylesheet" type="text/css" href="./assets/Lato/latostyle.css">
+            
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Create an easy to share link for your games!" />
+	</head>
+	<body>
+		<section class="form">
+			<center>
+				<h1>See your games!</h1>
+				<p>Here you can find your games on this website</p>
+
+                <div id="googleButton" class="g-signin2" data-onsuccess="onSignIn"></div> <br>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="logout();">Change Account</button>
+                    </div>
+                    <input id="mail" name="mail" class="form-control" type="text" placeholder="Email from Google Account (please login!)" aria-describedby="button-addon1" required readonly>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="update();">Update</button>
+
+				<section id="results">
+
+				</section>
+			    <footer>
+	                <p>LinkGames by <a href="https://twitter.com/Bigaston">Bigaston</a> | <a href="about.html">About</a></p>
+	            </footer>
+            </center>
+        </section>
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <script src="user.js"></script>
+	</body>
+</html>
