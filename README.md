@@ -1,2 +1,2 @@
 # link-ga.me
-A website to compress all game marketplace at one lin
+A website to compress all game marketplace at one link
