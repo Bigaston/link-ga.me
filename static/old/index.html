@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>LinkGame</title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/Lato/latofonts.css">
+        <link rel="stylesheet" type="text/css" href="../assets/Lato/latostyle.css">
+        
+        <script src="index.js"></script>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Create an easy to share link for your games!" />
+    </header>
+    <body>
+        <center>            
+            <h1>LinkGame</h1>
+            <h2>Create an easy to share link for your games!</h2>
+            
+            <p>Name of your game :</p>
+            <input id="title" name="title" type="text" required> <br>
+            
+            <p>Name of the creator :</p>
+            <input id="creator" name="creator" type="text"> <br>
+            
+            <p>Link to picture :</p>
+            <input id="image" name="image" type="text" required> <br>
+            
+            <p>Description :</p>
+            <textarea id="desc" name="description" rows="10" cols="30" placeholder="Enter the description of your game here! (Leave blank for nothing)."></textarea> <br>
+            
+            <h2>Links to your game</h2>
+            <p>Enter only the link you have</p>
+            
+            <p>Itch.io</p>
+            <input id="itch" name="itch" type="text"> <br>
+            
+            <p>Newgrounds</p>
+            <input id="ng" name="ng" type="text"> <br>
+            
+            <p>Gamejolt</p>
+            <input id="gj" name="gj" type="text"> <br>
+            
+            <p>Steam</p>
+            <input id="steam" name="steam" type="text"> <br>
+            
+            <p>Armorgames</p>
+            <input id="ag" type="text"> <br>
+            
+            <p>Ludum Dare</p>
+            <input id="ld" type="text"> <br>
+            <div id="ld_banner_div">
+                <input id="ld_banner" type="checkbox" name="ld_banner">
+                <label for="ld_banner">Enable LDJam banner?</label>
+                
+                <div id="ld_num_div">
+                    <input id="ld_num" type="number" name="ld_num">
+                    <label for="ld_num" >Number of the LDJam</label>
+                </div>
+            </div>
+            
+            <p>Google Play Store</p>
+            <input id="gp" type="text"> <br>
+            
+            <p>App Store</p>
+            <input id="as" type="text"> <br>
+            
+            <p>Github</p>
+            <input id="git" type="text"> <br>
+            
+            <p>Color</p>
+            <input type="color" id="color_back" name="color_back" value="#D5DBDB" />
+            <label for="color_back">Background</label>
+            
+            <input type="color" id="color_text" name="color_text" value="#1C2833" />
+            <label for="color_text">Text</label> <br> <br> 
+
+            <button type="button" id="button_link" onclick="CreateLink();">Get link</button> <button type="button" id="button_qr" onclick="CreateLink(true);">Get QR Code</button><br> <br>
+        <footer>
+            <p>LinkGames by <a href="https://twitter.com/Bigaston">Bigaston</a> | <a href="about.html">About</a></p>
+        </footer>
+        </center>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

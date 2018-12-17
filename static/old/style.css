@@ -1,0 +1,55 @@
+body
+{
+    background-color: #D5DBDB;
+    color: #1C2833;
+    
+}
+
+h1
+{
+    font-size: 40px;
+}
+
+h2
+{
+    font-size: 20px;
+}
+
+h2
+{
+    font-size: 15px;
+}
+
+a
+{
+    color: #1C2833;
+    text-decoration: underline;
+}
+
+@media (min-width : 720px) {
+    #desc_link
+    {
+        font-size: 20px;
+        margin-left: 30%;
+        margin-right: 30%;
+    }
+}
+
+@media (max-width : 720px) {
+    #desc_link
+    {
+        font-size: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+input
+{
+    margin-bottom: 15px;
+}
+
+p
+{
+    margin-bottom: 3px;
+}

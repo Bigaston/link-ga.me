@@ -134,6 +134,10 @@ app.get("/", function(req, res) {
 	res.sendFile(__dirname + "/static/user.html")
 })
 
+app.get("/about", function(req, res) {
+	res.sendFile(__dirname + "/static/about.html")
+})
+
 app.get("/update", function(req, res) {
 	if (req.query.link == null) {
 		res.sendStatus(404)
