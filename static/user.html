@@ -22,7 +22,8 @@
 				<p>Here you can find your games on this website</p>
 
                 <div id="googleButton" class="g-signin2" data-onsuccess="onSignIn"></div> <br>
-                <form id="formMail" action="/delete" method="POST">
+				<form id="formMail" action="/delete" method="POST">
+					<input type="text" name="token" id="token" style="display:none;">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="logout();">Change Account</button>

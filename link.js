@@ -5,13 +5,16 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync');
 var config = require("./config.json");
 var bodyParser = require('body-parser')
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client(config.googleToken);
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 const adapter = new FileSync("db.json")
 const db = low(adapter)
 
-db.defaults({link : [], user: {}})
+db.defaults({link : []})
 	.write()
 
 app.set('view engine', 'pug');
@@ -19,6 +22,7 @@ app.set('views', './views')
 app.use(express.static("./static/"))
 
 app.post('/submit', function (req, res) {
+	verify(req.body.token).catch(console.error);
 	var table = {}
 	table.title = req.body.title
 	table.creator = req.body.creator
@@ -36,14 +40,6 @@ app.post('/submit', function (req, res) {
 	table.as = req.body.as.replace(".", "%°")
 	table.git = req.body.git.replace(".", "%°")
 
-	if (db.has("user." + req.body.mail.replace(".", "%°")).value() == false) {
-		db.set("user." + req.body.mail.replace(".", "%°"), [req.body.url])
-			.write()
-	} else {
-		db.get("user." + req.body.mail.replace(".", "%°"))
-			.push(req.body.url)
-			.write()
-	}
 	db.get("link")
 		.push(table)
   		.write()
@@ -62,16 +58,12 @@ app.get("/verify", function(req, res) {
 })
 
 app.post("/delete", function(req, res) {
+	verify(req.body.token).catch(console.error);
 	if (req.body.mail == db.get("link").find({ link: req.body.link}).value().mail.replace("%°", ".")) {
 		db.get("link")
 			.remove({ link: req.body.link})
 			.write()
-		var link = db.get("user." + req.body.mail.replace(".", "%°")).value();
-		var pos = link.indexOf(req.body.link)
-		var link = link.splice(pos, 0)
-		db.set("user." + req.body.mail.replace(".", "%°"), link)
-			.write()
-		res.redirect("/user")
+		res.status(200).redirect("/user")
 	} else {
 		res.sendStatus(401)
 	}
@@ -85,16 +77,17 @@ app.get("/usergame", function(req, res) {
 
 	var user = req.query.user.replace(".", "%°")
 
-	if (db.has("user." + user).value() == false) {
+	if (db.has("link").find({"mail": user}).value() == false) {
 		res.sendStatus(404)
 		return
 	}
 	
-	var user_game = db.get("user." + user).value();
+	var user_game = db.get("link").filter({"mail": user}).value();
 	var response = []
 	for (i=0; i < user_game.length; i++) {
-		response.push(db.get("link").find({ link: user_game[i]}).value())
+		response.push(db.get("link").find({ link: user_game[i].link}).value())
 	}
+
 	res.status(200).json(response)	
 	return
 }) 
@@ -110,7 +103,7 @@ app.get("/", function(req, res) {
 
 app.get("/:code", function(req, res) {
 	if (req.params.code == "favicon.ico") {return}
-	if (db.has("link").fill({ link: req.params.code}).value()) {
+	if (db.has("link").find({ link: req.params.code}).value()) {
 		res.status(404).render("404", {title: req.params.code})
 		return
 	}
@@ -137,3 +130,16 @@ app.get("/:code", function(req, res) {
 app.listen(config.port, function() {
 	console.log("Démarage du serveur sur le port " + config.port)
 });
+
+async function verify(pToken) {
+	const ticket = await client.verifyIdToken({
+		idToken: pToken,
+		audience: config.googleToken,  // Specify the CLIENT_ID of the app that accesses the backend
+		// Or, if multiple clients access the backend:
+		//[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+	});
+	const payload = ticket.getPayload();
+	const userid = payload['sub'];
+	// If request specified a G Suite domain:
+	//const domain = payload['hd'];
+  }

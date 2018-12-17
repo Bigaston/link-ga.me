@@ -1,3 +1,4 @@
 {
-	"port" : 9000
+	"port" : 9000,
+	"googleToken" : "375319043489-vl1gik23l43pnbnvf4r1v40ii7la96tr.apps.googleusercontent.com"
 }

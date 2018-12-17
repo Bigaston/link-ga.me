@@ -10,7 +10,9 @@ function onSignIn(googleUser) {
     // Useful data for your client-side scripts:
     let profile = googleUser.getBasicProfile();
     mail = document.getElementById("mail")
-    mail.value = profile.getEmail();
+	mail.value = profile.getEmail();
+	token = document.getElementById("token")
+	token.value = googleUser.getAuthResponse().id_token;
     update()
 };
 
@@ -50,4 +52,5 @@ function delGame(pLink) {
 	var linkArea = document.getElementById("link")
 	linkArea.value = pLink
 	document.forms["formMail"].submit();
+	update();
 }

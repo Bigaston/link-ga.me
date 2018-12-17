@@ -1,1 +1,3 @@
-- Verification de l'utilisateur avec API Google
+- Ajouter les prix des jeux
+- Editer un lien
+- Nombre de visites
