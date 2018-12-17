@@ -1,2 +1,1 @@
 - Verification de l'utilisateur avec API Google
-- Verification de la présence de jeu et redirection 404 sinon

@@ -25,7 +25,7 @@ function logout() {
 function check() {
     link = document.getElementById("basic-url").value
     button = document.getElementById("button-addon2")
-    if (link === "") {
+    if (link === "" || ["index", "about", "user"].includes(link)) {
         button.classList.add("btn-danger")
         button.classList.remove("btn-success")
         button.classList.remove("btn-outline-secondary")

@@ -110,6 +110,10 @@ app.get("/", function(req, res) {
 
 app.get("/:code", function(req, res) {
 	if (req.params.code == "favicon.ico") {return}
+	if (db.has("link").fill({ link: req.params.code}).value()) {
+		res.status(404).render("404", {title: req.params.code})
+		return
+	}
 	tab = db.get("link").find({ link: req.params.code}).value()
 	var tab2 = {
 		title: tab.title, 
