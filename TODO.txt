@@ -1,3 +1,2 @@
 - Ajouter les prix des jeux
-- Editer un lien
-- Nombre de visites
+- Mettre a jour about.html

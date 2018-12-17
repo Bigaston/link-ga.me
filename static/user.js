@@ -35,14 +35,16 @@ function update() {
 			}
 			for (i=0; i < data.length; i++) {
 				ssec = document.createElement("section")
-				ssec.innerHTML = `<div class="card" style="width: 18rem;">
+				ssec.innerHTML = `<div class="card" style="width: 21rem;">
 									  <div class="card-body">
 									    <h5 class="card-title">${data[i].title}</h5>
 									    <p class="card-text">${data[i].description.replace("%°", ".")}</p>
 										<a href="/${data[i].link}" class="btn btn-primary">Visit the page</a>
-									  	<button class="btn btn-danger" onclick="delGame('${data[i].link}');">Delete</button>
+										<button type="button" class="btn btn-warning" onclick="updateGame('${data[i].link}');">Update</button>
+										<button class="btn btn-danger" onclick="delGame('${data[i].link}');">Delete</button>
+										<p>Number of visits : ${data[i].number}</p>
 									  </div>
-									</div>`
+									</div><br><br>`
 				section.appendChild(ssec)
 			}
 		})
@@ -53,4 +55,8 @@ function delGame(pLink) {
 	linkArea.value = pLink
 	document.forms["formMail"].submit();
 	update();
+}
+
+function updateGame(pLink) {
+	document.location.href="/update?link=" + pLink
 }

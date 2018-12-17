@@ -21,6 +21,39 @@ app.set('view engine', 'pug');
 app.set('views', './views')
 app.use(express.static("./static/"))
 
+app.post("/updategame", function (req, res) {
+	verify(req.body.token).catch(console.error);
+	tab = db.get("link").find({ link: req.body.url}).value()
+	if (tab.mail != req.body.mail.replace(".", "%°")) {
+		res.sendStatus(403)
+		return
+	}
+
+	var table = {}
+	table.title = req.body.title
+	table.creator = req.body.creator
+	table.link = tab.link
+	table.mail = tab.mail
+	table.image = req.body.image.replace(".", "%°")
+	table.description = req.body.description.replace(".", "%°")
+	table.itch = req.body.itch.replace(".", "%°")
+	table.ng = req.body.ng.replace(".", "%°")
+	table.gj = req.body.gj.replace(".", "%°")
+	table.steam = req.body.steam.replace(".", "%°")
+	table.ag = req.body.ag.replace(".", "%°")
+	table.ld = req.body.ld.replace(".", "%°")
+	table.gp = req.body.gp.replace(".", "%°")
+	table.as = req.body.as.replace(".", "%°")
+	table.git = req.body.git.replace(".", "%°")
+	table.number = tab.number
+
+	db.get("link")
+		.find({ link: req.body.url})
+		.assign(table)
+		.write()
+	res.redirect("/" + req.body.url)
+})
+
 app.post('/submit', function (req, res) {
 	verify(req.body.token).catch(console.error);
 	var table = {}
@@ -39,6 +72,7 @@ app.post('/submit', function (req, res) {
 	table.gp = req.body.gp.replace(".", "%°")
 	table.as = req.body.as.replace(".", "%°")
 	table.git = req.body.git.replace(".", "%°")
+	table.number = 0
 
 	db.get("link")
 		.push(table)
@@ -100,6 +134,32 @@ app.get("/", function(req, res) {
 	res.sendFile(__dirname + "/static/user.html")
 })
 
+app.get("/update", function(req, res) {
+	if (req.query.link == null) {
+		res.sendStatus(404)
+		return
+	}
+
+	tab = db.get("link").find({ link: req.query.link}).value()
+	var tab2 = {
+		title: tab.title, 
+		creator: tab.creator, 
+		image: tab.image.replace("%°", "."),
+		description: tab.description.replace("%°", "."),
+		itch: tab.itch.replace("%°", "."),
+		ng: tab.ng.replace("%°", "."),
+		gj: tab.gj.replace("%°", "."),
+		steam: tab.steam.replace("%°", "."),
+		ag: tab.ag.replace("%°", "."),
+		ld: tab.ld.replace("%°", "."),
+		gp: tab.gp.replace("%°", "."),
+		as: tab.as.replace("%°", "."),
+		git: tab.git.replace("%°", "."),
+		link: tab.link
+	}
+
+	res.render("update", tab2)
+})
 
 app.get("/:code", function(req, res) {
 	if (req.params.code == "favicon.ico") {return}
@@ -107,6 +167,11 @@ app.get("/:code", function(req, res) {
 		res.status(404).render("404", {title: req.params.code})
 		return
 	}
+	db.get("link")
+		.find({ link: req.params.code})
+		.assign({ number: db.get("link").find({ link: req.params.code}).value().number + 1})
+		.write()
+
 	tab = db.get("link").find({ link: req.params.code}).value()
 	var tab2 = {
 		title: tab.title, 
@@ -121,7 +186,8 @@ app.get("/:code", function(req, res) {
 		ld: tab.ld.replace("%°", "."),
 		gp: tab.gp.replace("%°", "."),
 		as: tab.as.replace("%°", "."),
-		git: tab.git.replace("%°", ".")
+		git: tab.git.replace("%°", "."),
+		number: tab.number
 	}
 
 	res.render("link", tab2)

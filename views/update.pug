@@ -1,0 +1,142 @@
+html
+	head
+		title= title
+		<meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin-client_id" content="375319043489-vl1gik23l43pnbnvf4r1v40ii7la96tr.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
+		link(rel="stylesheet" href="style.css")
+		link(rel="stylesheet" type="text/css" href="assets/Lato/latofonts.css")
+		link(rel="stylesheet" type="text/css" href="assets/Lato/latostyle.css")
+           
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		meta(name="description" content="Create an easy to share link for your games!")
+
+	body
+		center
+			section.form
+				<h1>LinkGame</h1>
+				<p>Update info of <b>#{link}</b>!</p>
+
+				<form id="link-form" action="/updategame" method="post">
+					<input type="text" name="token" id="token" style="display:none;">
+					<input name="url" value="#{link}" type="text" style="display:none;">
+
+					<fieldset>
+						<legend>Basic information</legend>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Name of your game</span>
+							</div>
+							<input value="#{title}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="title" required>
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Name of the creator</span>
+							</div>
+							<input value="#{creator}"type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="creator" required>
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Link to picture</span>
+							</div>
+							<input value="#{image}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="image">
+						</div>
+                        
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Description</span>
+							</div>
+							<textarea name="description" class="form-control" aria-label="With textarea" placeholder="Enter the description of your game here! (Leave blank for nothing)".>#{description}</textarea>
+						</div>
+					</fieldset>
+                    
+					<fieldset>
+						<legend>Links to your game</legend>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Itch.io</span>
+							</div>
+							<input value="#{itch}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="itch">
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Newgrounds</span>
+							</div>
+							<input value="#{ng}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ng">
+						</div>
+                        
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Gamejolt</span>
+							</div>
+							<input value="#{gj}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="gj">
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Steam</span>
+							</div>
+							<input value="#{steam}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="steam">
+						</div>
+                        
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Armorgames</span>
+							</div>
+							<input value="#{ag}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ag">
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Ludum Dare</span>
+							</div>
+							<input value="#{ld}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="ld">
+						</div>
+                        
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Google Play Store</span>
+							</div>
+							<input value="#{gp}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="gp">
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">App Store</span>
+							</div>
+							<input value="#{as}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="as">
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroup-sizing-default">Github</span>
+							</div>
+							<input value="#{git}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="git">
+						</div>
+					</fieldset>
+                    
+					<div id="googleButton" class="g-signin2" data-onsuccess="onSignIn"></div> <br>
+
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="logout();">Change Account</button>
+						</div>
+						<input id="mail" name="mail" class="form-control" type="text" placeholder="Email from Google Account (please login!)" aria-describedby="button-addon1" required readonly>
+					</div>
+
+                 
+					<button id="valid" class="btn btn-primary" type="submit">Generate the link</button> <br><br>
+					<br>
+				</form>
+
+				<footer>
+				<p><br><br>LinkGames by <a href="https://twitter.com/Bigaston">Bigaston</a> | <a href="about.html">About</a></p>
+				</footer>
+
+		script(src="update.js")
